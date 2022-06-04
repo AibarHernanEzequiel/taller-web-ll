@@ -1,0 +1,12 @@
+#carrito {
+    width: 50%;
+    color: $yellow-500;
+
+}
+.carritoContainer{
+    margin: 10px;
+}
+.logo{
+    width: 100px;
+    height: 100px;
+}
