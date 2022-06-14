@@ -4,7 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: '', redirectTo: 'AppComponent', pathMatch: 'full' },
-  { path: 'login', loadChildren: () => import('./components/login/login.module').then(m => m.LoginModule) },
 ];
 
 @NgModule({
