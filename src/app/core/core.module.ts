@@ -5,6 +5,7 @@ import { BannerComponent } from '../components/banner/banner.component';
 import { TiendaComponent } from '../components/tienda/tienda.component';
 import { FooterComponent } from '../components/footer/footer.component';
 import { CoreComponent } from './core.component';
+import { AdminComponent } from '../components/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { CoreComponent } from './core.component';
     TiendaComponent,
     FooterComponent,
     CoreComponent,
+    AdminComponent,
   ],
   imports: [CommonModule],
 })
