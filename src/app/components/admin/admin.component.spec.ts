@@ -22,9 +22,9 @@ describe('AdminComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should render component app-header and create admin-navbar', () => {
+  it('should render component app-header and render app-nav-admin', () => {
     const compile = fixture.nativeElement as HTMLElement;
     expect(compile.querySelector('app-header')).toBeTruthy();
-    expect(compile.querySelector('.container .navbar')).toBeTruthy();
+    expect(compile.querySelector('app-nav-admin')).toBeTruthy();
   });
 });

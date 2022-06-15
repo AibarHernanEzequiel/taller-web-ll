@@ -6,6 +6,7 @@ import { TiendaComponent } from '../components/tienda/tienda.component';
 import { FooterComponent } from '../components/footer/footer.component';
 import { CoreComponent } from './core.component';
 import { AdminComponent } from '../components/admin/admin.component';
+import { NavAdminComponent } from '../components/admin/nav-admin/nav-admin.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { AdminComponent } from '../components/admin/admin.component';
     FooterComponent,
     CoreComponent,
     AdminComponent,
+    NavAdminComponent
   ],
   imports: [CommonModule],
 })
