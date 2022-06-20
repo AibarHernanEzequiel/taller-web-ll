@@ -1,14 +1,14 @@
 <header class="p-3 bg-dark text-white">
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <a href="/home" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+        <a routerLink="/" routerLinkActive="active" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
           <img src="../../assets/img/logo.png" class="logo" alt="...">
         </a>
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="/home" class="nav-link px-2 text-secondary">Home</a></li>
-          <li><a href="/big-tienda" class="nav-link px-2 text-white">Tienda</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Categorias</a></li>
+          <li><a routerLink="/" routerLinkActive="active" class="nav-link px-2 text-white">Home</a></li>
+          <li><a href="#" class="nav-link px-2 text-white">Tienda</a></li>
+          <li><a href="#" class="nav-link px-2 text-white">Contacto</a></li>
         </ul>
 
         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
@@ -16,12 +16,11 @@
         </form>
 
         <div class="text-end">
-          
-            <a href="/login"><button type="button" class="btn btn-outline-light me-2">Login</button></a> 
+          <button type="button" class="btn btn-outline-light me-2">Login</button>
           <button type="button" class="btn btn-warning">Sign-up</button>
         </div>
       <div class="fs-4 mb-3 carritoContainer">
-        <i class="bi bi-basket3-fill"></i>
+        <i type="button" (click)="frame.show();actualizarCarrito()" class="bi bi-basket3-fill"></i>
       </div>
 
 
@@ -30,3 +29,59 @@
       </div>
     </div>
   </header>
+
+<div mdbModal #frame="mdbModal" class="modal fade" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable" role="document">
+    <div class="modal-content bg-dark text-light">
+      <!--Header-->
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Carro De Compras</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <!--Body-->
+      <div class="modal-body ">
+        <table class="table text-light ">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Nombre del Producto</th>
+              <th>Precio</th>
+              <th>Cantidad</th>
+              <th>Eliminar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let element of ProductosCarrito; let indice = index">
+              <th scope="row">{{indice + 1}}</th>
+              <td>{{element.nombre}}</td>
+              <td>{{element.precio}}</td>
+              <td>{{element.cantidad}}</td>
+              <td>
+                <a href="#" style="text-decoration:none; color: white;" (click)="deleteProd(element.id)">
+                  <i class="bi bi-trash"></i>
+                </a>
+              </td>
+            </tr>
+            <tr class="total">
+              <th scope="row">-</th>
+              <td>Total</td>
+              <td>{{Total}}</td>
+              <td>-</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!--Footer-->
+      <div class="modal-footer">
+        <button type="button" mdbBtn color="warning" outline="true" class="waves-light" mdbWavesEffect data-dismiss="modal" (click)="frame.hide()">Cerrar</button>
+        <button mdbBtn color="warning" class="waves-light" mdbWavesEffect>Pagar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
