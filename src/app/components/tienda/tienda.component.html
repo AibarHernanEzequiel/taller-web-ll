@@ -19,108 +19,24 @@
     <div class="container">
       <h2 class="text-center" >Ofertas de la semana</h2>
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        <div class="col">
+        <div *ngFor="let element of Productos; let indice = index" class="col">
           <div class="p-3 border bg-light"> <div class="card shadow-sm">
               <img src="../../assets/img/organizador-asiento.jpg"   width="100%" height="250" class="bd-placeholder-img card-img-top" alt=""  focusable="false" preserveAspectRatio="xMidYMid slice">
               <div class="card-body">
-                <p class="card-text">Producto 1</p>
-                <p class="card-text">$2000</p>
+                <p class="card-text">{{element.nombre}}</p>
+                <p class="card-text">${{element.precio}}</p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
-                    <button type="button" class="btn btn-sm  btn-outline-dark">Agregar al carrito</button>
-                    <button type="button" class="btn btn-sm  btn-outline-dark">Ver detalle</button>
+                    <button (click)="agregarProducto(element.id, 1)" type="button" class="btn btn-sm  btn-outline-dark">Agregar al carrito</button>
+                    <button [routerLink]="['/detalle', indice + 1]" routerLinkActive="active" type="button" class="btn btn-sm  btn-outline-dark">Ver detalle</button>
                   </div>
                  
                 </div>
               </div>
             </div></div>
         </div>
-        <div class="col">
-          <div class="p-3 border bg-light"> <div class="card shadow-sm">
-            <img src="../../assets/img/organizador-asiento.jpg"   width="100%" height="250" class="bd-placeholder-img card-img-top" alt=""  focusable="false" preserveAspectRatio="xMidYMid slice">
-  
-              <div class="card-body">
-                <p class="card-text">Producto 1</p>
-                <p class="card-text">$2000</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm  btn-outline-dark">Agregar al carrito</button>
-                    <button type="button" class="btn btn-sm  btn-outline-dark">Ver detalle</button>
-                  </div>
-                 
-                </div>
-              </div>
-            </div></div>
-        </div>
-        <div class="col">
-          <div class="p-3 border bg-light"> <div class="card shadow-sm">
-            <img src="../../assets/img/organizador-asiento.jpg"   width="100%" height="250" class="bd-placeholder-img card-img-top" alt=""  focusable="false" preserveAspectRatio="xMidYMid slice">
-  
-              <div class="card-body">
-                <p class="card-text">Producto 1</p>
-                <p class="card-text">$2000</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm  btn-outline-dark">Agregar al carrito</button>
-                    <button type="button" class="btn btn-sm  btn-outline-dark">Ver detalle</button>
-                  </div>
-                 
-                </div>
-              </div>
-            </div></div>
-        </div>
-
-        <div class="col">
-          <div class="p-3 border bg-light"> <div class="card shadow-sm">
-            <img src="../../assets/img/organizador-asiento.jpg"   width="100%" height="250" class="bd-placeholder-img card-img-top" alt=""  focusable="false" preserveAspectRatio="xMidYMid slice">
-  
-              <div class="card-body">
-                <p class="card-text">Producto 1</p>
-                <p class="card-text">$2000</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm  btn-outline-dark">Agregar al carrito</button>
-                    <button type="button" class="btn btn-sm  btn-outline-dark">Ver detalle</button>
-                  </div>
-                 
-                </div>
-              </div>
-            </div></div>
-        </div>
-        <div class="col">
-          <div class="p-3 border bg-light"> <div class="card shadow-sm">
-            <img src="../../assets/img/organizador-asiento.jpg"   width="100%" height="250" class="bd-placeholder-img card-img-top" alt=""  focusable="false" preserveAspectRatio="xMidYMid slice">
-  
-              <div class="card-body">
-                <p class="card-text">Producto 1</p>
-                <p class="card-text">$2000</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm  btn-outline-dark">Agregar al carrito</button>
-                    <button type="button" class="btn btn-sm  btn-outline-dark">Ver detalle</button>
-                  </div>
-                 
-                </div>
-              </div>
-            </div></div>
-        </div>
-        <div class="col">
-          <div class="p-3 border bg-light"> <div class="card shadow-sm">
-            <img src="../../assets/img/organizador-asiento.jpg"   width="100%" height="250" class="bd-placeholder-img card-img-top" alt=""  focusable="false" preserveAspectRatio="xMidYMid slice">
-  
-              <div class="card-body">
-                <p class="card-text">Producto 1</p>
-                <p class="card-text">$2000</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm  btn-outline-dark">Agregar al carrito</button>
-                    <button type="button" class="btn btn-sm  btn-outline-dark">Ver detalle</button>
-                  </div>
-                 
-                </div>
-              </div>
-            </div></div>
-        </div>
+        
+        
         
          
       
