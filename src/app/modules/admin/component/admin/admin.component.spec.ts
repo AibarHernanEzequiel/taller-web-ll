@@ -8,8 +8,9 @@ describe('AdminComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AdminComponent],
-    }).compileComponents();
+      declarations: [ AdminComponent ]
+    })
+    .compileComponents();
   });
 
   beforeEach(() => {
@@ -20,11 +21,5 @@ describe('AdminComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
-
-  it('should render component app-header and render app-nav-admin', () => {
-    const compile = fixture.nativeElement as HTMLElement;
-    expect(compile.querySelector('app-header')).toBeTruthy();
-    expect(compile.querySelector('app-nav-admin')).toBeTruthy();
   });
 });
