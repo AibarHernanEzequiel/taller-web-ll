@@ -12,6 +12,7 @@ import { BigTiendaComponent } from './components/big-tienda/big-tienda.component
 import { HomeComponent } from './components/home/home.component';
 import { CoreModule } from './modules/core/core.module';
 import { AdminModule } from './modules/admin/admin.module';
+import { ParaLuzComponent } from './components/para-luz/para-luz.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { AdminModule } from './modules/admin/admin.module';
     FooterComponent,
     BigTiendaComponent,
     HomeComponent,
+    ParaLuzComponent,
   ],
   imports: [
     BrowserModule,
