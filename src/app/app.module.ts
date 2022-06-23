@@ -19,14 +19,10 @@ import { HomeComponent } from './components/home/home.component';
     TiendaComponent,
     FooterComponent,
     BigTiendaComponent,
-    HomeComponent
+    HomeComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    MDBBootstrapModule.forRoot(),
-  ],
+  imports: [BrowserModule, AppRoutingModule, MDBBootstrapModule.forRoot()],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
