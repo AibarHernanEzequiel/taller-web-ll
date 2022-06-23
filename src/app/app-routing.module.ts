@@ -10,6 +10,11 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'big-tienda', component: BigTiendaComponent },
   { path: 'detalle/:id', component: ProductoDetalleComponentComponent },
+  {
+    path: 'usuario',
+    loadChildren: () =>
+      import('./modules/admin/admin.module').then((m) => m.AdminModule),
+  },
 ];
 
 @NgModule({

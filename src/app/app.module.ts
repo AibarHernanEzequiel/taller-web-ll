@@ -10,6 +10,8 @@ import { TiendaComponent } from './components/tienda/tienda.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { BigTiendaComponent } from './components/big-tienda/big-tienda.component';
 import { HomeComponent } from './components/home/home.component';
+import { CoreModule } from './modules/core/core.module';
+import { AdminModule } from './modules/admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,12 @@ import { HomeComponent } from './components/home/home.component';
     BigTiendaComponent,
     HomeComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, MDBBootstrapModule.forRoot()],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    MDBBootstrapModule.forRoot(),
+    CoreModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
