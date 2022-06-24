@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ServicioUserService } from 'src/app/services/servicio-user.services';
 
 
 @Component({
@@ -7,15 +10,37 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./signup.component.css']
 })
 export class SignUpComponent implements OnInit {
-
- 
-
-  constructor() {
+  constructor(private servicio: ServicioUserService, private router:Router) {
    }
 
   ngOnInit(): void {
   }
 
+  signupForm = new FormGroup({
+    nombre: new FormControl('', Validators.required),
+    apellido: new FormControl('', Validators.required),
+    email: new FormControl('',Validators.required),
+    contraseña: new FormControl('',Validators.required),
+    confirmContraseña: new FormControl('',Validators.required)
+  });
+
+  registrarse(Nombre: string,Apellido:string,Email:string, Password: string){
+    this.servicio.registrarUsuario(Nombre,Apellido,Email,Password).subscribe(data=>{
+      console.log(data)
+      if(data.success){
+        this.router.navigate(['home'])
+      }
+    })
+    
   
+  }
+   
+   onSubmit() {
+     var Nombre=(this.signupForm.get('nombre')?.value);
+     var Apellido=(this.signupForm.get('apellido')?.value);
+     var Email=(this.signupForm.get('email')?.value);
+     var Password=(this.signupForm.get('contraseña')?.value);
+     this.registrarse(Nombre,Apellido,Email,Password);  
+   }
 
 }
