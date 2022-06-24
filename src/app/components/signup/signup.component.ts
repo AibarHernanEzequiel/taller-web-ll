@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ServicioUserService } from 'src/app/services/servicio-user.services';
 
 
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -13,26 +14,27 @@ export class SignUpComponent implements OnInit {
   constructor(private servicio: ServicioUserService, private router:Router) {
    }
 
+    pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,16}$";
+
   ngOnInit(): void {
   }
+
+
 
   signupForm = new FormGroup({
     nombre: new FormControl('', Validators.required),
     apellido: new FormControl('', Validators.required),
-    email: new FormControl('',Validators.required),
-    contraseña: new FormControl('',Validators.required),
+    email: new FormControl('',[Validators.required,Validators.email]),
+    contraseña: new FormControl('',[Validators.required,Validators.pattern(this.pattern)]),
     confirmContraseña: new FormControl('',Validators.required)
   });
 
   registrarse(Nombre: string,Apellido:string,Email:string, Password: string){
     this.servicio.registrarUsuario(Nombre,Apellido,Email,Password).subscribe(data=>{
       console.log(data)
-      if(data.success){
-        this.router.navigate(['home'])
-      }
     })
     
-  
+    this.router.navigate(['home']);
   }
    
    onSubmit() {

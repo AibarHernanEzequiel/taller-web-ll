@@ -33,7 +33,7 @@ export class ServicioUserService {
       }
 
       registrarUsuario(name: string, family_name: string, email:string, password:string ) {
-        return this.http.post<registerResponse>('http://localhost:3900/api/register-user',{name,family_name,email,password}) ;
+        return this.http.post('http://localhost:3900/api/register-user',{name,family_name,email,password}) ;
       }
 
 
