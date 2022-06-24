@@ -1,0 +1,8 @@
+button {
+    color:black;
+}
+
+#precioAntiguo {
+    text-decoration: line-through;
+    text-decoration-color: red;
+}
