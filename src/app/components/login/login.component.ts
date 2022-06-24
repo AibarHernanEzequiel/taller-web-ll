@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ServicioUserService } from 'src/app/services/servicio-user.services';
 import { FormGroup, FormControl, AbstractControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-login',
@@ -9,10 +10,7 @@ import { FormGroup, FormControl, AbstractControl, Validators } from '@angular/fo
 })
 export class LoginComponent implements OnInit {
      
-   variableQueGuardaElObservableQueRetornaElServicio: any;
-
-
-  constructor(private servicio: ServicioUserService) {}
+  constructor(private servicio: ServicioUserService, private router: Router) {}
 
   ngOnInit(): void {} 
 
@@ -23,7 +21,10 @@ userForm = new FormGroup({
 });
 
 loguearse(Username: string, Password: string){
- this.servicio.enviarUsuario(Username,Password)
+ this.servicio.enviarUsuario(Username,Password).subscribe(data =>{
+  console.log(data)
+  this.router.navigate(['home']);
+ })
 }
 
 onSubmit() {

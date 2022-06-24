@@ -1,0 +1,16 @@
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-5">
+            <h5 class="text-white text-center mt-5">Ingrese el codigo que se mando por mail</h5>
+            <form [formGroup]="confirmForm" class="form-inline justify-content-between" (ngSubmit)="onSubmit()">
+                <label class="small mb-1" for="inputNombre">Mail</label>
+                <input class="form-control py-4 mr-2 my-2" id="username"  formControlName="username"  />
+                <label class="small mb-1" for="inputNombre">Codigo</label>
+                <input class="form-control py-4 mr-2 my-2" id="token" formControlName="token"  />
+                <button class="btn btn-primary" type="submit" >Confirmar mail</button>
+            </form>
+            <h6 class="text-white-50">Verifique su casilla de correo</h6>
+        </div>
+    </div>
+</div>

@@ -24,16 +24,18 @@ export class ServicioUserService {
 
   
 
-    obtenerTodosLosUsuario(): Observable<User[]> {
-        return this.http.get('http://localhost/api/users') as Observable<User[]>;
-      }
+    
 
       enviarUsuario(Username:string, Password:string ) {
         return this.http.post('http://localhost:3900/api/login',{Username,Password}) ;
       }
 
       registrarUsuario(name: string, family_name: string, email:string, password:string ) {
-        return this.http.post('http://localhost:3900/api/register-user',{name,family_name,email,password}) ;
+        return this.http.post('http://localhost:3900/api/register-user',{name,family_name,email,password},{observe:'response'}) ;
+      }
+
+      verificarEmail( codigo: number,username: string ) {
+        return this.http.post('http://localhost:3900/api/confirm-user',{codigo,username},{observe:'response'}) ;
       }
 
 
