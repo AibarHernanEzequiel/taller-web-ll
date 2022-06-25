@@ -2,7 +2,7 @@
 var AmazonCognitoIdentity = require("amazon-cognito-identity-js");
 var CognitoUserPool = AmazonCognitoIdentity.CognitoUserPool;
 global.fetch = require("node-fetch");
-// var AWS = require("@aws-sdk/client-s3");
+var AWS = require("aws-sdk");
 
 var poolData = {
   UserPoolId: "us-east-1_WzvNY580w",
@@ -112,7 +112,7 @@ var controller = {
 
     var authenticationData = {
       Username: username,
-      Password: password,
+      Password: password
     };
     var authenticationDetails = new AmazonCognitoIdentity.AuthenticationDetails(authenticationData);
 
@@ -127,7 +127,22 @@ var controller = {
       // Caso de exito
       onSuccess: function (result) {
         var accessToken = result.getAccessToken().getJwtToken();
-      
+
+
+        AWS.config.region = 'us-east-1';
+
+
+        AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+          IdentityPoolId: 'us-east-1:a9a4851f-2153-47af-88d4-3799f06bb505', // your identity pool id here
+          Logins: {
+            // Change the key below according to the specific region your user pool is in.
+            'cognito-idp.us-east-1.amazonaws.com/us-east-1_WzvNY580w': result
+              .getIdToken()
+              .getJwtToken(),
+          },
+        });
+
+        AWS.config.credentials.refresh(error => {
           if (error) {
             return res.status(404).send({
               status: "Error",
@@ -140,7 +155,10 @@ var controller = {
               message: "Exitosamente logueado",
             });
           }
-        },
+        });
+		
+	},
+    
         onFailure: function(err) {
           return res.status(404).send({
             status: "Error Failure",
@@ -156,4 +174,3 @@ var controller = {
 };
 
 module.exports = controller;
-//registerUser();

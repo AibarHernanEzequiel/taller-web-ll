@@ -10,9 +10,6 @@ var ArticleController = require('../controllers/article');
 var router = express.Router();
 
 //Rutas de Articulos
-
-router.get('/test-de-controlador' , ArticleController.test);
-router.post('/datos-curso' , ArticleController.datosCurso);
 router.get('/articles/:last?' , ArticleController.getArticles);
 router.get('/article/:id' , ArticleController.getArticle);
 router.get('/getAllArticle' , ArticleController.getAllArticles);
