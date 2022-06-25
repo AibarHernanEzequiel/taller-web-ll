@@ -79,9 +79,7 @@ export class ServicioProductosService implements OnInit{
   }
 
   getProducto(id: string ):Producto | undefined {
-
     return this.Productos.find(element => element._id == id);
-
   }
 
   agregarProducto(id: string, cantidad:number):void{

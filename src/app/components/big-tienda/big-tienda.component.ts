@@ -11,7 +11,6 @@ export class BigTiendaComponent implements OnInit {
 
   constructor(private productoServicio: ServicioProductosService) {
     this.Productos= this.productoServicio.getProductos();
-    console.log(this.Productos)
    }
 
   Productos : Producto[];
