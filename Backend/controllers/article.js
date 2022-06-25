@@ -92,7 +92,7 @@ var controller = {
         var last = req.params.last;
 
             if(last || last != undefined){
-                query.limit(5);
+                query.limit(6);
 
             }
         query.sort('id').exec((err, articles) =>{
@@ -114,8 +114,43 @@ var controller = {
             }
             
             return res.status(200).send({
-                status: 'Success',
-                articles: articles
+
+                articles
+             });
+
+
+        });
+       
+    },
+
+    getAllArticles : (req , res) =>{
+
+        //EL sort (-id) le dice que me los devuelva de forma ordenados descendente. El menos hace referencia
+        //a descendente
+        var query = ArticleModel.find({});
+
+
+        query.sort('id').exec((err, articles) =>{
+
+            
+            
+            if(err){
+                return res.status(500).send({
+                    status: 'Error',
+                    message: 'Error al devolver articulos'
+                 });
+
+            }
+            if(!articles){
+                return res.status(404).send({
+                    status: 'Error',
+                    message: 'No hay articulos para mostrar.'
+                 });
+            }
+            
+            return res.status(200).send({
+
+                articles
              });
 
 

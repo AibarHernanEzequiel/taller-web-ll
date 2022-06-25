@@ -7,13 +7,13 @@
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li><a routerLink="/" routerLinkActive="active" class="nav-link px-2 text-white">Home</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Tienda</a></li>
+          <li><a href="/big-tienda" class="nav-link px-2 text-white">Tienda</a></li>
           <li><a href="#" class="nav-link px-2 text-white">Contacto</a></li>
         </ul>
 
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+        <!-- <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
           <input type="search" class="form-control form-control-dark text-white bg-dark" placeholder="Search..." aria-label="Search">
-        </form>
+        </form> -->
 
         <div class="text-end">
           <button type="button" class="btn btn-outline-light me-2"><a routerLink="/login" class="nav-link px-2 text-white">Login</a></button>
@@ -60,7 +60,7 @@
               <td>{{element.precio}}</td>
               <td>{{element.cantidad}}</td>
               <td>
-                <a href="#" style="text-decoration:none; color: white;" (click)="deleteProd(element.id)">
+                <a href="#" style="text-decoration:none; color: white;" (click)="deleteProd(element._id)">
                   <i class="bi bi-trash"></i>
                 </a>
               </td>

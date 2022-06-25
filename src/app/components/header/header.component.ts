@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
   }
 
   deleteProd(id:any): void {
-    var indiceElement = this.ProductosCarrito.findIndex(item => item.id == id);
+    var indiceElement = this.ProductosCarrito.findIndex(item => item._id == id);
     if(indiceElement != -1){
       if(this.ProductosCarrito[indiceElement].cantidad == 1){
         this.ProductosCarrito.splice(indiceElement, 1);

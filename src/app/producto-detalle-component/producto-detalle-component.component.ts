@@ -10,17 +10,17 @@ import { ServicioProductosService } from '../servicio-productos.service';
 })
 export class ProductoDetalleComponentComponent implements OnInit {
 
-  indice : number;
+  id : string;
   producto : Producto | undefined;
   constructor(private route:ActivatedRoute, private productosServicio:ServicioProductosService) {
-    this.indice = this.route.snapshot.params['id'];
-    this.producto = this.productosServicio.getProducto(this.indice);
+    this.id = this.route.snapshot.params['id'];
+    this.producto = this.productosServicio.getProducto(this.id);
    }
 
   ngOnInit(): void {
   }
 
-  agregarProducto(id:number | undefined, cantidad: string):void{
+  agregarProducto(id:string | undefined, cantidad: string):void{
     if(id != undefined){
       this.productosServicio.agregarProducto(id, Number(cantidad));
     }
