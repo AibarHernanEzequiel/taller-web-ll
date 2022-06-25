@@ -1,6 +1,7 @@
 import { Injectable, OnInit } from '@angular/core';
 import { elementAt } from 'rxjs';
 import { Producto } from './components/header/producto';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +10,9 @@ export class ServicioProductosService implements OnInit{
 
   Productos : Producto[];
   ProductosCarrito : Producto[];
+  url = "http://localhost:3900/api//articles/"
 
-  constructor() {
+  constructor(private http: HttpClient) {
     this.Productos= [
       {
         id : 1,
@@ -56,7 +58,12 @@ export class ServicioProductosService implements OnInit{
   }
 
   getProductos():Producto[] {
-    console.log(this.Productos)
+    let header= new HttpHeaders()
+      .set('Type-content', 'aplication/json')
+
+      this.http.get(this.url+':last', { 
+        headers : header
+       }).subscribe(resp =>{ console.log(resp) })
     return this.Productos;
   }
 
