@@ -1,7 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
-import { elementAt, Observable } from 'rxjs';
-import { Producto } from './interfaces/producto.interface';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Producto } from '../interfaces/producto.interface';
 
 @Injectable({
   providedIn: 'root'
