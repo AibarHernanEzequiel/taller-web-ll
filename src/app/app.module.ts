@@ -12,8 +12,6 @@ import { TiendaComponent } from './components/tienda/tienda.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { BigTiendaComponent } from './components/big-tienda/big-tienda.component';
 import { HomeComponent } from './components/home/home.component';
-import { CoreModule } from './modules/core/core.module';
-import { AdminModule } from './modules/admin/admin.module';
 import { LoginComponent } from './components/login/login.component';
 import { ServicioUserService } from './services/servicio-user.services';
 import { HttpClientModule } from '@angular/common/http';
@@ -38,11 +36,10 @@ import { ConfirmacionComponent } from './components/confirmacion/confirmacion.co
     BrowserModule,
     AppRoutingModule,
     MDBBootstrapModule.forRoot(),
-    CoreModule,
     HttpClientModule,
     ReactiveFormsModule
   ],
   providers: [ServicioUserService],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
