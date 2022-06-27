@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicioProductosService } from 'src/app/servicio-productos.service';
-import { Producto } from './producto';
+import { Producto } from '../../interfaces/producto';
 
 @Component({
   selector: 'app-header',
