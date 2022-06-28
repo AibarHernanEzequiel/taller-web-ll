@@ -11,7 +11,6 @@ export class ServicioProductosService implements OnInit {
   url = 'http://localhost:3900/api/';
 
   constructor(private http: HttpClient) {
-
     this.Productos = [];
     this.ProductosCarrito = [];
   }
@@ -54,5 +53,9 @@ export class ServicioProductosService implements OnInit {
         this.ProductosCarrito.push(producto);
       } else console.log('error : producto no encontrado');
     }
+  }
+
+  public realizarPedido(endpoint: string, body: any) {
+    return this.http.post(`${this.url + endpoint}`, body);
   }
 }

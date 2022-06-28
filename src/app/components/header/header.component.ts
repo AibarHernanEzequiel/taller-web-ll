@@ -54,4 +54,17 @@ export class HeaderComponent implements OnInit {
     this.ProductosCarrito = this.productoServicio.getProductosCarrito();
     this.calcularTotal();
   }
+
+  public confirmarCompra() {
+    let confirmacion = confirm('¿Estas seguro de realizar la compra?');
+    if (confirmacion) {
+      const body = {
+        total: this.Total,
+        productos: this.ProductosCarrito,
+      };
+      this.productoServicio
+        .realizarPedido('/confirmar-pedido', body)
+        .subscribe((respuesta) => console.log('SE ENVIO CORRECTAMENTE'));
+    }
+  }
 }
