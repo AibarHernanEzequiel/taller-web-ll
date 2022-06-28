@@ -5,7 +5,7 @@ var app = require('./app');
 var port = 3900;
 
 //Para desactivar metodos que estan deprecados
-mongoose.set('useFindAndModify', false);
+/* mongoose.set('useFindAndModify', false); */
 
 //Para trabajar con promesas con mongodb y manejar los errores.
 mongoose.Promise = global.Promise;
