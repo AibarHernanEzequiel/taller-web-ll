@@ -165,8 +165,10 @@ var controller = {
   confirmarPedido: (req, res) => {
     let body = req.body;
     let pedido = new PedidoModel();
+    pedido.idPedido = pedido._id;
     pedido.totalAPagar = body.total;
     pedido.productos = body.productos;
+    pedido.fecha = body.fecha;
     pedido.save((err, pedidoStored) => {
       if (err || !pedidoStored) {
         return res.status(500).send({

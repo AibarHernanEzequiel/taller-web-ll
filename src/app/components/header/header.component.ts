@@ -1,3 +1,4 @@
+import { getLocaleDateFormat } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ServicioProductosService } from 'src/app/services/servicio-productos.service';
 
@@ -57,10 +58,12 @@ export class HeaderComponent implements OnInit {
 
   public confirmarCompra() {
     let confirmacion = confirm('¿Estas seguro de realizar la compra?');
+    let fecha = new Date();
     if (confirmacion) {
       const body = {
         total: this.Total,
         productos: this.ProductosCarrito,
+        fecha: fecha.toLocaleDateString(),
       };
       this.productoServicio
         .realizarPedido('/confirmar-pedido', body)
