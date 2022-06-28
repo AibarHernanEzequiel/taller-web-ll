@@ -36,6 +36,7 @@ import { ConfirmacionComponent } from './components/confirmacion/confirmacion.co
     MDBBootstrapModule.forRoot(),
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [ServicioUserService],
   bootstrap: [AppComponent],

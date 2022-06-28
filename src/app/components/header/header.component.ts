@@ -20,19 +20,24 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {}
 
   deleteProd(id: any): void {
-    var indiceElement = this.ProductosCarrito.findIndex(
-      (item) => item._id == id
+    let confirmacion = confirm(
+      '¿Estas seguro de eliminar este producto del carrito?'
     );
-    if (indiceElement != -1) {
-      if (this.ProductosCarrito[indiceElement].cantidad == 1) {
-        this.ProductosCarrito.splice(indiceElement, 1);
+    if (confirmacion) {
+      var indiceElement = this.ProductosCarrito.findIndex(
+        (item) => item._id == id
+      );
+      if (indiceElement != -1) {
+        if (this.ProductosCarrito[indiceElement].cantidad == 1) {
+          this.ProductosCarrito.splice(indiceElement, 1);
+        } else {
+          this.ProductosCarrito[indiceElement].cantidad--;
+        }
       } else {
-        this.ProductosCarrito[indiceElement].cantidad--;
+        console.log('error');
       }
-    } else {
-      console.log('error');
+      this.calcularTotal();
     }
-    this.calcularTotal();
   }
 
   calcularTotal(): void {

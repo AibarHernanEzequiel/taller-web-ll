@@ -19,6 +19,7 @@ export class BigTiendaComponent implements OnInit {
 
   agregarProducto(id:string, cantidad: number):void{
     this.productoServicio.agregarProducto(id, cantidad);
+    alert('Producto agregado exitosamente');
   }
 
 }
