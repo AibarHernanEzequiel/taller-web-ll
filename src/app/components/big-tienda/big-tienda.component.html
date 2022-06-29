@@ -47,184 +47,33 @@
     <i class="bi bi-filter"></i>
   </a>
   
-    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 m-1">
-      <div class="col">
+    <div class="row row-cols-2 row-cols-lg-4 g-2 g-lg-3 m-1">
+      <div *ngFor="let element of Productos; let indice = index" class="col">
         <div class="p-3 border bg-light"> <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/></svg>
+            <img src="https://placeimg.com/640/480/tech" class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false">
 
             <div class="card-body">
-              <p class="card-text">Producto 1</p>
-              <p class="card-text">$2000</p>
+              <p class="card-text">{{element.nombre}}</p>
+                <p class="card-text">${{element.precio}}</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-warning">Agregar al carrito</button>
-                  <button type="button" class="btn btn-sm btn-outline-warning">Ver detalle</button>
+                  <button (click)="agregarProducto(element._id, 1)" type="button" class="btn btn-sm btn-outline-warning">Agregar al carrito</button>
+                  <button [routerLink]="['/detalle', element._id]" routerLinkActive="active" type="button" class="btn btn-sm btn-outline-warning">Ver detalle</button>
                 </div>
                
               </div>
             </div>
           </div></div>
       </div>
-      <div class="col">
-        <div class="p-3 border bg-light"> <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/></svg>
-
-            <div class="card-body">
-              <p class="card-text">Producto 1</p>
-              <p class="card-text">$2000</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-warning">Agregar al carrito</button>
-                  <button type="button" class="btn btn-sm btn-outline-warning">Ver detalle</button>
-                </div>
-               
-              </div>
-            </div>
-          </div></div>
-      </div>
-      <div class="col">
-        <div class="p-3 border bg-light"> <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/></svg>
-
-            <div class="card-body">
-              <p class="card-text">Producto 1</p>
-              <p class="card-text">$2000</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-warning">Agregar al carrito</button>
-                  <button type="button" class="btn btn-sm btn-outline-warning">Ver detalle</button>
-                </div>
-               
-              </div>
-            </div>
-          </div></div>
-      </div>
-      <div class="col">
-        <div class="p-3 border bg-light"> <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/></svg>
-
-            <div class="card-body">
-              <p class="card-text">Producto 1</p>
-              <p class="card-text">$2000</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-warning">Agregar al carrito</button>
-                  <button type="button" class="btn btn-sm btn-outline-warning">Ver detalle</button>
-                </div>
-               
-              </div>
-            </div>
-          </div></div>
-      </div>
-      <div class="col">
-        <div class="p-3 border bg-light"> <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/></svg>
-
-            <div class="card-body">
-              <p class="card-text">Producto 1</p>
-              <p class="card-text">$2000</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-warning">Agregar al carrito</button>
-                  <button type="button" class="btn btn-sm btn-outline-warning">Ver detalle</button>
-                </div>
-               
-              </div>
-            </div>
-          </div></div>
-      </div>
-      <div class="col">
-        <div class="p-3 border bg-light"> <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/></svg>
-
-            <div class="card-body">
-              <p class="card-text">Producto 1</p>
-              <p class="card-text">$2000</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-warning">Agregar al carrito</button>
-                  <button type="button" class="btn btn-sm btn-outline-warning">Ver detalle</button>
-                </div>
-               
-              </div>
-            </div>
-          </div></div>
-      </div>
-      <div class="col">
-        <div class="p-3 border bg-light"> <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/></svg>
-
-            <div class="card-body">
-              <p class="card-text">Producto 1</p>
-              <p class="card-text">$2000</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-warning">Agregar al carrito</button>
-                  <button type="button" class="btn btn-sm btn-outline-warning">Ver detalle</button>
-                </div>
-               
-              </div>
-            </div>
-          </div></div>
-      </div>
-      <div class="col">
-        <div class="p-3 border bg-light"> <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/></svg>
-
-            <div class="card-body">
-              <p class="card-text">Producto 1</p>
-              <p class="card-text">$2000</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-warning">Agregar al carrito</button>
-                  <button type="button" class="btn btn-sm btn-outline-warning">Ver detalle</button>
-                </div>
-               
-              </div>
-            </div>
-          </div></div>
-      </div>
-      <div class="col">
-        <div class="p-3 border bg-light"> <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/></svg>
-
-            <div class="card-body">
-              <p class="card-text">Producto 1</p>
-              <p class="card-text">$2000</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-warning">Agregar al carrito</button>
-                  <button type="button" class="btn btn-sm btn-outline-warning">Ver detalle</button>
-                </div>
-               
-              </div>
-            </div>
-          </div></div>
-      </div>
-      <div class="col">
-        <div class="p-3 border bg-light"> <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/></svg>
-
-            <div class="card-body">
-              <p class="card-text">Producto 1</p>
-              <p class="card-text">$2000</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-warning">Agregar al carrito</button>
-                  <button type="button" class="btn btn-sm btn-outline-warning">Ver detalle</button>
-                </div>
-               
-              </div>
-            </div>
-          </div></div>
-      </div>
+    </div>
+      
       <nav aria-label="Page navigation example text-center">
-        <ul class="pagination justify-content-end">
-          <li class="page-item "><a class="page-link link-dark p-1" href="#">Previous</a></li>
-          <li class="page-item"><a class="page-link link-dark p-1" href="#">1</a></li>
-          <li class="page-item"><a class="page-link link-dark p-1" href="#">2</a></li>
-          <li class="page-item"><a class="page-link link-dark p-1" href="#">3</a></li>
-          <li class="page-item"><a class="page-link link-dark p-1" href="#">Next</a></li>
+        <ul class="pagination justify-content-center">
+          <li class="page-item "><a class="page-link link-dark p-1" >Previous</a></li>
+          <li class="page-item"><a class="page-link link-dark p-1" >1</a></li>
+          <li class="page-item"><a class="page-link link-dark p-1" >2</a></li>
+          <li class="page-item"><a class="page-link link-dark p-1" >3</a></li>
+          <li class="page-item"><a class="page-link link-dark p-1" >Next</a></li>
         </ul>
       </nav>
 

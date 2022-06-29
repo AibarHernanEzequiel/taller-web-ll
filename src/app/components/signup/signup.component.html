@@ -1,0 +1,70 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-7">
+            <div class="card shadow-lg border-0 rounded-lg mt-5">
+                <div class="card-header">
+                    <h3 class="text-center font-weight-light my-4">Crear Cuenta</h3>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+                        <div class="form-row">
+                            <div class="form-group"><label class="small mb-1" for="inputNombre">Nombre</label><input
+                                    formControlName="nombre" class="form-control py-4" id="inputNombre"
+                                    aria-describedby="nameHelp" placeholder="Ingrese nombre" /></div>
+                            <div class="text-danger" *ngIf="signupForm.get('nombre')?.hasError('required') ">
+                                <span>El nombre es obligatorio</span>
+                            </div>
+                            <div class="form-group"><label class="small mb-1" for="inputApellido">Apellido</label><input
+                                    formControlName="apellido" class="form-control py-4" id="inputApellido"
+                                    aria-describedby="apellidoHelp" placeholder="Ingrese apellido" /></div>
+                            <div class="text-danger" *ngIf="signupForm.get('apellido')?.hasError('required')">
+                                <span>El Apellido es obligatorio</span>
+                            </div>
+                        </div>
+                        <div class="form-group"><label class="small mb-1" for="inputEmailAddress">Email</label><input
+                                formControlName="email" class="form-control py-4" id="inputEmailAddress" type="email"
+                                aria-describedby="emailHelp" placeholder="Enter email address" /></div>
+                        <div class="text-danger" *ngIf="signupForm.get('email')?.hasError('required')">
+                            <span>El email es obligatorio</span>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group"><label class="small mb-1"
+                                    for="inputPassword">Contraseña</label><input formControlName="contraseña"
+                                    class="form-control py-4" id="inputPassword" type="password"
+                                    aria-describedby="passwordHelp" placeholder="Ingrese contraseña" /></div>
+                            <div class="text-danger" *ngIf="signupForm.get('contraseña')?.hasError('required') ">
+                                <span>La contraseña es obligatoria</span>
+                            </div>
+                            <div class="text-danger"
+                                *ngIf="signupForm.get('contraseña')?.touched && signupForm.get('contraseña')?.hasError('pattern')">
+                                <span class="error-msg">La contraseña debe tener entre 8 y 12 caracteres y contener
+                                    por lo menos una letra mayuscula, una minuscula, un numero y un caracter
+                                    especial</span>
+                            </div>
+                            <div class="form-group"><label class="small mb-1" for="inputConfirmPassword">Confirmar
+                                    Contraseña</label><input formControlName="confirmContraseña"
+                                    class="form-control py-4" id="inputConfirmPassword" type="password"
+                                    aria-describedby="passwordConfirmHelp" placeholder="Ingrese  de nuevo contraseña" />
+                            </div>
+                            <div class="text-danger"
+                                *ngIf="signupForm.get('confirmContraseña')?.touched && signupForm.get('confirmContraseña')?.hasError('required')">
+                                <span>La confirmacion de contraseña es obligatoria</span>
+                            </div>
+                            <div class="text-danger"
+                                *ngIf="signupForm.get('confirmContraseña')?.touched && (signupForm.get('contraseña')?.value !== signupForm.get('confirmContraseña')?.value)">
+                                <span>La contraseñas no coinciden</span>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group mt-4 mb-0"><button type="submit"
+                                class="btn btn-warning">Registrar</button> </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-center">
+                    <div class="small"><a href="login">Ya tienes una cuenta? Ingresa</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
