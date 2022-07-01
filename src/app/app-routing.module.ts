@@ -7,7 +7,8 @@ import { SignUpComponent } from './components/signup/signup.component';
 import { ConfirmacionComponent } from './components/confirmacion/confirmacion.component';
 
 import { HomeComponent } from './components/home/home.component';
-import { ProductoDetalleComponentComponent } from './producto-detalle-component/producto-detalle-component.component';
+import { ProductoDetalleComponentComponent } from './components/producto-detalle-component/producto-detalle-component.component';
+
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
@@ -16,12 +17,6 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignUpComponent },
   { path: 'verificar', component: ConfirmacionComponent },
-  {
-    path: 'usuario',
-    loadChildren: () =>
-      import('./modules/admin/admin.module').then((m) => m.AdminModule),
-  },
-
 ];
 
 @NgModule({

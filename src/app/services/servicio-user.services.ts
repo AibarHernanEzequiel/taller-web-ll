@@ -3,7 +3,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 // el observable es de esta libreria
 import { Observable } from 'rxjs';
-import { User } from '../interfaces/usuario';
+import { User } from '../interfaces/usuario.interface';
 
 interface registerResponse{
   success: boolean

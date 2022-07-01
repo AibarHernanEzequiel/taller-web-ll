@@ -20,7 +20,7 @@
     "validator": "^13.7.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.16",
+    "nodemon": "^2.0.18",
     "webpack-cli": "^4.10.0"
   }
 }
