@@ -17,7 +17,7 @@ export class TiendaComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  agregarProducto(id:number, cantidad: number):void{
+  agregarProducto(id:string, cantidad: number):void{
     this.productoServicio.agregarProducto(id, cantidad);
   }
 

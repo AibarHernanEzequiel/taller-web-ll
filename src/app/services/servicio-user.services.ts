@@ -26,8 +26,8 @@ export class ServicioUserService {
 
     
 
-      enviarUsuario(Username:string, Password:string ) {
-        return this.http.post('http://localhost:3900/api/login',{Username,Password}) ;
+      enviarUsuario(username:string, password:string ) {
+        return this.http.post('http://localhost:3900/api/login',{username,password},{observe:'response'}) ;
       }
 
       registrarUsuario(name: string, family_name: string, email:string, password:string ) {
