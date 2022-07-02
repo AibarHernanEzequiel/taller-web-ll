@@ -9,28 +9,29 @@ import { Router } from '@angular/router';
     styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-     
+  public loginError = false;
   constructor(private servicio: ServicioUserService, private router: Router) {}
 
   ngOnInit(): void {} 
 
-
 userForm = new FormGroup({
-  Username: new FormControl('', Validators.required),
-  Password: new FormControl('', Validators.required),
+  username: new FormControl('', Validators.required),
+  password: new FormControl('', Validators.required),
 });
 
-loguearse(Username: string, Password: string){
- this.servicio.enviarUsuario(Username,Password).subscribe(data =>{
-  console.log(data)
-  this.router.navigate(['home']);
+loguearse(username: string, password: string){
+ this.servicio.enviarUsuario(username,password).subscribe(data =>{
+    this.router.navigate(['home']);
+ }, error=>{
+  this.loginError=true;
+  this.userForm.reset();
  })
 }
 
 onSubmit() {
-  var Username=(this.userForm.get('Username')?.value);
-  var Password=(this.userForm.get('Password')?.value);
-  this.loguearse(Username,Password);  
+  var username=(this.userForm.get('username')?.value);
+  var password=(this.userForm.get('password')?.value);
+  this.loguearse(username,password);  
 }
 
 }

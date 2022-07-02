@@ -3,7 +3,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 // el observable es de esta libreria
 import { Observable } from 'rxjs';
-import { User } from '../interfaces/usuario';
+import { User } from '../interfaces/usuario.interface';
 
 interface registerResponse{
   success: boolean
@@ -26,8 +26,8 @@ export class ServicioUserService {
 
     
 
-      enviarUsuario(Username:string, Password:string ) {
-        return this.http.post('http://localhost:3900/api/login',{Username,Password}) ;
+      enviarUsuario(username:string, password:string ) {
+        return this.http.post('http://localhost:3900/api/login',{username,password},{observe:'response'}) ;
       }
 
       registrarUsuario(name: string, family_name: string, email:string, password:string ) {
@@ -36,6 +36,10 @@ export class ServicioUserService {
 
       verificarEmail( codigo: number,username: string ) {
         return this.http.post('http://localhost:3900/api/confirm-user',{codigo,username},{observe:'response'}) ;
+      }
+
+      reenviarCodigo( username: string ) {
+        return this.http.post('http://localhost:3900/api/resend-code',{username},{observe:'response'}) ;
       }
 
 
