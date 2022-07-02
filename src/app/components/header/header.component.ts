@@ -75,9 +75,9 @@ export class HeaderComponent implements OnInit {
     this.ProductosCarrito = this.productoServicio.getProductosCarrito();
     this.calcularTotal();
   }
-
   public confirmarCompra() {
-    let confirmacion = confirm('¿Estas seguro de realizar la compra?');
+    if(this.Session){
+      let confirmacion = confirm('¿Estas seguro de realizar la compra?');
     let fecha = new Date();
     if (confirmacion) {
       const body = {
@@ -89,7 +89,10 @@ export class HeaderComponent implements OnInit {
       this.productoServicio
         .realizarPedido('/confirmar-pedido', body)
         .subscribe((respuesta) => console.log('SE ENVIO CORRECTAMENTE'));
-        alert('Compra realizada correctamente')
+        alert('Compra realizada correctamente');
+    }
+    }else{
+      alert('Inicie sesion antes de comprar');
     }
   }
 }

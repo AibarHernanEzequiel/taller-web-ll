@@ -44,6 +44,21 @@ export class ServicioProductosService implements OnInit {
     return this.Productos.find((element) => element._id == id);
   }
 
+  getUltimosProductos(): Producto[] {
+    let header = new HttpHeaders().set('Type-content', 'aplication/json');
+
+    var obs = this.http.get(this.url + '/articles/:last?', {
+      headers: header,
+    });
+
+    obs.subscribe((resp: any) => {
+      resp.articles.forEach((element: Producto) => {
+        this.Productos.push(element);
+      });
+    });
+    return this.Productos;
+  }
+
   agregarProducto(id: string, cantidad: number): void {
     var indiceElement = this.ProductosCarrito.findIndex(
       (element) => element._id == id

@@ -25,6 +25,7 @@ export class ProductoDetalleComponentComponent implements OnInit {
   agregarProducto(id: string | undefined, cantidad: string): void {
     if (id != undefined) {
       this.productosServicio.agregarProducto(id, Number(cantidad));
+      alert('Producto agregado exitosamente');
     }
   }
 }

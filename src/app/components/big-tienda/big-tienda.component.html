@@ -1,52 +1,7 @@
 
-  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="offcanvasExampleLabel">Filtrar búsqueda</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-       
-        <div class="list-group m-2">
-          <label for="" class="text-center m-2">Categorías</label>
-            <label class="list-group-item  ">
-              <a href="" class="link-dark">Accesorios de auto y camioneta</a>
-            </label>
-            <label class="list-group-item  ">
-              <a href="" class="link-dark">Tuning</a>
-            </label>
-            <label class="list-group-item  ">
-              <a href="" class="link-dark">Limpieza de vehiculos</a>
-            </label>
-            <label class="list-group-item  ">
-              <a href="" class="link-dark">Audio para vehiculos</a>
-            </label>
-          </div>
-
-          <div class="list-group m-2">
-            <label for="" class="text-center m-2">Precio</label>
-              <label class="list-group-item  ">
-                <a href="" class="link-dark">Hasta $2.000</a>
-              </label>
-              <label class="list-group-item  ">
-                <a href="" class="link-dark">$2.000 a $5.000</a>
-              </label>
-              <label class="list-group-item  ">
-                <a href="" class="link-dark">Más de $5.000</a>
-              </label>
-              
-            </div>
-
-      </div>
-    </div>
 
 
 <div class="container">
-    
-  <a class="btn btn-outline-dark m-4" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-expanded="false" aria-controls="offcanvasExample">
-    Filtros de búsqueda
-    <i class="bi bi-filter"></i>
-  </a>
-  
     <div class="row row-cols-2 row-cols-lg-4 g-2 g-lg-3 m-1">
       <div *ngFor="let element of Productos; let indice = index" class="col">
         <div class="p-3 border bg-light"> <div class="card shadow-sm">

@@ -5,11 +5,14 @@
     <div class="col-lg-6 text-center">
       <img src="../../assets/img/logo.png" class="logo" alt="..." width="" />
       <h1 class="display-5 fw-bold lh-1 mb-3">Accesorios para vehiculos</h1>
-      <p class="lead">
+      <p  *ngIf="Session == false;"  class="lead">
         Registrate para empezar a disfrutar de las mejores marcas en accesorios
         !
       </p>
-      <div class="d-grid gap-2 d-md-flex justify-content-center">
+      <p  *ngIf="Session == true;"  class="lead">
+        Bienvenido ! Empeza a disfrutar de las mejores marcas en accesorios!
+      </p>
+      <div *ngIf="Session == false;" class="d-grid gap-2 d-md-flex justify-content-center">
         <a href="/registro" class="btn btn-outline-dark">Registrarme</a>
         <a href="/login" class="btn btn-outline-dark">Iniciar sesión</a>
       </div>
@@ -25,7 +28,7 @@
         <div class="p-3 border bg-light">
           <div class="card shadow-sm">
             <img
-              src="../../assets/img/organizador-asiento.jpg"
+              src="../../assets/img/{{element.image}}"
               width="100%"
               height="250"
               class="bd-placeholder-img card-img-top"
@@ -35,7 +38,7 @@
             />
             <div class="card-body">
               <p class="card-text">{{ element.nombre }}</p>
-              <p class="card-text">{{ element.precio }}</p>
+              <p class="card-text">$ {{ element.precio }}</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button
