@@ -18,6 +18,7 @@ var user_routes = require('./routes/user');
 // Middlewares
 app.use(bodyParser.urlencoded({extended : false}));
 
+
 // convierte cualquier petición en un objeto json que sea mas simple de leer
 
 app.use(bodyParser.json());

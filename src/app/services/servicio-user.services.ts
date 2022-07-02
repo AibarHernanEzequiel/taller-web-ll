@@ -31,7 +31,13 @@ export class ServicioUserService {
       }
 
       registrarUsuario(name: string, family_name: string, email:string, password:string ) {
-        return this.http.post('http://localhost:3900/api/register-user',{name,family_name,email,password},{observe:'response'}) ;
+        var newUser = {
+            "name" : name,
+            "familyName": family_name,
+            "email": email,
+            "password": password
+        }
+        return this.http.post('http://localhost:3900/api/register-user',newUser,{observe:'response'}) ;
       }
 
       verificarEmail( codigo: number,username: string ) {

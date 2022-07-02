@@ -1,6 +1,7 @@
 'use strict'
 
 var validator = require('validator');
+
 var ArticleModel = require('../models/article');
 
 const { param } = require("../routes/article");

@@ -4,6 +4,8 @@ var CognitoUserPool = AmazonCognitoIdentity.CognitoUserPool;
 global.fetch = require("node-fetch");
 var AWS = require("aws-sdk");
 
+const { body, validationResult } = require('express-validator');
+
 var poolData = {
   UserPoolId: "us-east-1_WzvNY580w",
   ClientId: "4gd1cmkp5lfjp5jtlcdkp8e0g7",
@@ -13,10 +15,12 @@ var userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
 
 var controller = {
   registerUser: (req, res) => {
+    
     var name = req.body.name;
     var familyName = req.body.familyName;
     var email = req.body.email;
     var password = req.body.password;
+
 
     var attributeList = [];
     attributeList.push(
@@ -38,6 +42,16 @@ var controller = {
       })
     );
 
+    // if(validator.isEmpty(req.body)){
+    //   console.log("Esto ta vacio");
+    // }
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      
+      return res.status(400).json({ errors: errors.array() });
+
+    }
+    
     userPool.signUp(email, password, attributeList, null, (err, result) => {
       if (err) {
         return res.status(404).send({
@@ -55,7 +69,11 @@ var controller = {
         });
       }
     });
-  },
+  
+}
+
+  
+  ,
   confirmarRegistro: (req, res) => {
     var codigo = req.body.codigo;
     var username = req.body.username;
@@ -64,7 +82,13 @@ var controller = {
       Pool: userPool,
     };
 
-    //validar que el username exista
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      
+      return res.status(400).json({ errors: errors.array() });
+
+    }
     
     var user = new AmazonCognitoIdentity.CognitoUser(userData);
 
@@ -109,6 +133,14 @@ var controller = {
   login: (req, res) => {
     var username = req.body.username;
     var password = req.body.password;
+
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      
+      return res.status(400).json({ errors: errors.array() });
+
+    }
 
     var authenticationData = {
       Username: username,
