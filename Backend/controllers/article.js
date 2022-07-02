@@ -46,6 +46,7 @@ var controller = {
       //Asignar valores
       article.nombre = params.nombre;
       article.precio = params.precio;
+      article.descuento = params.descuento;
       article.image = null;
 
       // Guardar el articulo

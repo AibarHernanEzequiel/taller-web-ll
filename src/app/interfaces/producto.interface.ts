@@ -6,4 +6,6 @@ export interface Producto{
     cantidad : number;
     descripcion : String;
     image : string;
+    descuento : number;
+    tieneDescuento : boolean;
 }

@@ -1,6 +1,12 @@
+#card-text-nombre{
+    margin-bottom: 5px;
+}
 .card-img-top{
     width: 50%;
     height:50%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 .card{
     width: 100%;

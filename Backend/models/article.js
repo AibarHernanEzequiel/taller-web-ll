@@ -11,6 +11,7 @@ var ArticleSchema = Schema({
   precio: String,
   descripcion: String,
   image: String,
+  descuento : String,
 });
 
 module.exports = mongoose.model("Article", ArticleSchema);
