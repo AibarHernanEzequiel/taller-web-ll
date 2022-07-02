@@ -43,7 +43,10 @@ export class ServicioUserService {
       deleteToken(){
         this.cookies.delete("token");
       }
+      reenviarCodigo( username: string ) {
+        return this.http.post('http://localhost:3900/api/resend-code',{username},{observe:'response'}) ;
 
+      }
 
 
 }

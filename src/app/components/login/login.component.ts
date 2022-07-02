@@ -10,11 +10,10 @@ import { DataResponse } from 'src/app/interfaces/dataResponse.interface';
     styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-     
+  public loginError = false;
   constructor(private servicio: ServicioUserService, private router: Router) {}
 
   ngOnInit(): void {} 
-
 
 userForm = new FormGroup({
   username: new FormControl('', Validators.required),
@@ -23,12 +22,14 @@ userForm = new FormGroup({
 
 loguearse(username: string, password: string){
  this.servicio.enviarUsuario(username,password).subscribe((data: any) =>{
-  let res = (data.body as DataResponse)
   this.servicio.setToken('sesionIniciada');
   this.router.navigate(['home'])
   .then(() => {
     window.location.reload();
   });
+ }, error=>{
+  this.loginError=true;
+  this.userForm.reset();
  })
 }
 
