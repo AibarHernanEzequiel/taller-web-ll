@@ -1,5 +1,5 @@
 import { getLocaleDateFormat } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServicioProductosService } from 'src/app/services/servicio-productos.service';
 import { ServicioUserService } from 'src/app/services/servicio-user.services';
@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit {
   ProductosCarrito: Producto[];
   Total: number;
   Session: boolean;
+  @ViewChild('buttonClose') buttonClose: ElementRef;
 
   constructor(private productoServicio: ServicioProductosService, private servicioUser: ServicioUserService, private router: Router) {
     this.ProductosCarrito = this.productoServicio.getProductosCarrito();
@@ -84,9 +85,11 @@ export class HeaderComponent implements OnInit {
         productos: this.ProductosCarrito,
         fecha: fecha.toLocaleDateString(),
       };
+      this.buttonClose.nativeElement.click();
       this.productoServicio
         .realizarPedido('/confirmar-pedido', body)
         .subscribe((respuesta) => console.log('SE ENVIO CORRECTAMENTE'));
+        alert('Compra realizada correctamente')
     }
   }
 }
