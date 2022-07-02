@@ -38,6 +38,10 @@ export class ServicioUserService {
         return this.http.post('http://localhost:3900/api/confirm-user',{codigo,username},{observe:'response'}) ;
       }
 
+      reenviarCodigo( username: string ) {
+        return this.http.post('http://localhost:3900/api/resend-code',{username},{observe:'response'}) ;
+      }
+
 
 
 }

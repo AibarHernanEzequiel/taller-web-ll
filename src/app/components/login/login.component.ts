@@ -9,11 +9,10 @@ import { Router } from '@angular/router';
     styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-     
+  public loginError = false;
   constructor(private servicio: ServicioUserService, private router: Router) {}
 
   ngOnInit(): void {} 
-
 
 userForm = new FormGroup({
   username: new FormControl('', Validators.required),
@@ -22,8 +21,10 @@ userForm = new FormGroup({
 
 loguearse(username: string, password: string){
  this.servicio.enviarUsuario(username,password).subscribe(data =>{
-  console.log(data)
-  this.router.navigate(['home']);
+    this.router.navigate(['home']);
+ }, error=>{
+  this.loginError=true;
+  this.userForm.reset();
  })
 }
 
