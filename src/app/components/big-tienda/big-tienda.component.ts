@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ServicioProductosService } from 'src/app/servicio-productos.service';
-import { Producto } from '../header/producto';
+import { ServicioProductosService } from 'src/app/services/servicio-productos.service';
+import { Producto } from '../../interfaces/producto.interface';
 
 @Component({
   selector: 'app-big-tienda',
@@ -19,6 +19,7 @@ export class BigTiendaComponent implements OnInit {
 
   agregarProducto(id:string, cantidad: number):void{
     this.productoServicio.agregarProducto(id, cantidad);
+    alert('Producto agregado exitosamente');
   }
 
 }

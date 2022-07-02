@@ -1,46 +1,64 @@
+<div class="b-example-divider"></div>
 
-  <div class="b-example-divider"></div>
-
-  <div class="container col-xxl-8 px-4 py-5">
-    <div class="row justify-content-center align-items-center g-5 py-5">
-      <div class="col-lg-6 text-center">
-        <img src="../../assets/img/logo.png" class="logo" alt="..." width="">
-        <h1 class="display-5 fw-bold lh-1 mb-3">Accesorios para vehiculos</h1>
-        <p class="lead">Registrate para empezar a disfrutar de las mejores marcas en accesorios !</p>
-        <div class="d-grid gap-2 d-md-flex justify-content-center">
-          <a href="/registro" class="btn  btn-outline-dark">Registrarme</a>
-          <a href="/login" class="btn  btn-outline-dark">Iniciar sesión</a>
-        </div>
+<div class="container col-xxl-8 px-4 py-5">
+  <div class="row justify-content-center align-items-center g-5 py-5">
+    <div class="col-lg-6 text-center">
+      <img src="../../assets/img/logo.png" class="logo" alt="..." width="" />
+      <h1 class="display-5 fw-bold lh-1 mb-3">Accesorios para vehiculos</h1>
+      <p class="lead">
+        Registrate para empezar a disfrutar de las mejores marcas en accesorios
+        !
+      </p>
+      <div class="d-grid gap-2 d-md-flex justify-content-center">
+        <a href="/registro" class="btn btn-outline-dark">Registrarme</a>
+        <a href="/login" class="btn btn-outline-dark">Iniciar sesión</a>
       </div>
     </div>
   </div>
+</div>
 
-  <div class="album py-5 bg-light">
-    <div class="container">
-      <h2 class="text-center" >Ofertas de la semana</h2>
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        <div *ngFor="let element of Productos; let indice = index" class="col">
-          <div class="p-3 border bg-light"> <div class="card shadow-sm">
-              <img src="../../assets/img/organizador-asiento.jpg"   width="100%" height="250" class="bd-placeholder-img card-img-top" alt=""  focusable="false" preserveAspectRatio="xMidYMid slice">
-              <div class="card-body">
-                <p class="card-text">{{element.nombre}}</p>
-                <p class="card-text">${{element.precio}}</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button (click)="agregarProducto(element._id, 1)" type="button" class="btn btn-sm  btn-outline-dark">Agregar al carrito</button>
-                    <button [routerLink]="['/detalle', element._id]" routerLinkActive="active" type="button" class="btn btn-sm  btn-outline-dark">Ver detalle</button>
-                  </div>
-                 
+<div class="album py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center">Ofertas de la semana</h2>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      <div *ngFor="let element of Productos" class="col">
+        <div class="p-3 border bg-light">
+          <div class="card shadow-sm">
+            <img
+              src="../../assets/img/organizador-asiento.jpg"
+              width="100%"
+              height="250"
+              class="bd-placeholder-img card-img-top"
+              alt=""
+              focusable="false"
+              preserveAspectRatio="xMidYMid slice"
+            />
+            <div class="card-body">
+              <p class="card-text">{{ element.nombre }}</p>
+              <p class="card-text">{{ element.precio }}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button
+                    (click)="agregarProducto(element._id, 1)"
+                    type="button"
+                    class="btn btn-sm btn-outline-dark"
+                  >
+                    Agregar al carrito
+                  </button>
+                  <button
+                    [routerLink]="['/detalle', element._id]"
+                    routerLinkActive="active"
+                    type="button"
+                    class="btn btn-sm btn-outline-dark"
+                  >
+                    Ver detalle
+                  </button>
                 </div>
               </div>
-            </div></div>
+            </div>
+          </div>
         </div>
-        
-        
-        
-         
-      
-        
       </div>
     </div>
   </div>
+</div>

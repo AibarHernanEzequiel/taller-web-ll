@@ -14,7 +14,6 @@ var app = express();
 
 var article_routes = require('./routes/article');
 var user_routes = require('./routes/user');
-
 // Middlewares
 app.use(bodyParser.urlencoded({extended : false}));
 

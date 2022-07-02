@@ -27,10 +27,17 @@ export class ConfirmacionComponent implements OnInit {
         })
     }
 
+    reenviar() {
+        this.servicio.reenviarCodigo(this.confirmForm.get('username')?.value).subscribe(data => {
+            console.log(data)
+        })
+    }
+
     onSubmit() {
          var username=(this.confirmForm.get('username')?.value);
          var codigo=(this.confirmForm.get('token')?.value);
          this.verificar(codigo,username); 
     }
+
 
 }

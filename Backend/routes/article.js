@@ -15,7 +15,7 @@ router.get('/article/:id' , ArticleController.getArticle);
 router.get('/getAllArticle' , ArticleController.getAllArticles);
 router.delete('/delete', ArticleController.delete);
 router.post('/save' , ArticleController.save)
-
+router.post('/confirmar-pedido', ArticleController.confirmarPedido);
 
 
 
