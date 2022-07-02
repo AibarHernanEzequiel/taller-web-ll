@@ -17,6 +17,10 @@ export class ServicioProductosService implements OnInit {
 
   ngOnInit(): void {}
 
+  vaciarCarrito(): void{
+    this.ProductosCarrito =  [];
+  }
+
   getProductos(): Producto[] {
     let header = new HttpHeaders().set('Type-content', 'aplication/json');
 
@@ -56,6 +60,7 @@ export class ServicioProductosService implements OnInit {
   }
 
   public realizarPedido(endpoint: string, body: any) {
+    this.vaciarCarrito();
     return this.http.post(`${this.url + endpoint}`, body);
   }
 }

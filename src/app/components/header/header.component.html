@@ -16,14 +16,21 @@
         <li><a href="#" class="nav-link px-2 text-white">Contacto</a></li>
       </ul>
 
-      <div class="text-end">
+      <div *ngIf="Session == false; else elseBlock;" class="text-end">
         <button type="button" class="btn btn-outline-light me-2">
-          <a routerLink="/login" class="nav-link px-2 text-white">Login</a>
+          <a routerLink="/login" class="nav-link px-2 text-white">Iniciar Sesion</a>
         </button>
         <button type="button" class="btn btn-warning">
           <a routerLink="/signup" class="nav-link px-2 text-white">Registrarse</a>
         </button>
       </div>
+      <ng-template #elseBlock>
+        <div class="text-end">
+          <button type="button" class="btn btn-outline-light me-2">
+            <a (click)="cerrarSession()" routerLink="/home" class="nav-link px-2 text-white">Cerrar Sesion</a>
+          </button>
+        </div>
+      </ng-template>
       <div class="fs-4 mb-3 carritoContainer">
         <i type="button" (click)="frame.show(); actualizarCarrito()" class="bi bi-basket3-fill"></i>
       </div>

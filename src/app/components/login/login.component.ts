@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ServicioUserService } from 'src/app/services/servicio-user.services';
 import { FormGroup, FormControl, AbstractControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Data, Router } from '@angular/router';
+import { DataResponse } from 'src/app/interfaces/dataResponse.interface';
 
 @Component({
     selector: 'app-login',
@@ -21,9 +22,13 @@ userForm = new FormGroup({
 });
 
 loguearse(username: string, password: string){
- this.servicio.enviarUsuario(username,password).subscribe(data =>{
-  console.log(data)
-  this.router.navigate(['home']);
+ this.servicio.enviarUsuario(username,password).subscribe((data: any) =>{
+  let res = (data.body as DataResponse)
+  this.servicio.setToken('sesionIniciada');
+  this.router.navigate(['home'])
+  .then(() => {
+    window.location.reload();
+  });
  })
 }
 

@@ -1,6 +1,8 @@
 import { getLocaleDateFormat } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ServicioProductosService } from 'src/app/services/servicio-productos.service';
+import { ServicioUserService } from 'src/app/services/servicio-user.services';
 
 import { Producto } from '../../interfaces/producto.interface';
 
@@ -12,13 +14,30 @@ import { Producto } from '../../interfaces/producto.interface';
 export class HeaderComponent implements OnInit {
   ProductosCarrito: Producto[];
   Total: number;
+  Session: boolean;
 
-  constructor(private productoServicio: ServicioProductosService) {
+  constructor(private productoServicio: ServicioProductosService, private servicioUser: ServicioUserService, private router: Router) {
     this.ProductosCarrito = this.productoServicio.getProductosCarrito();
     this.calcularTotal();
+    if(this.servicioUser.getToken() == 'sesionIniciada'){
+      this.Session=true;
+    }else{
+      this.Session=false;
+    }
+
+    console.log(this.Session)
   }
 
   ngOnInit(): void {}
+
+  cerrarSession():void {
+    console.log('asd')
+    this.servicioUser.deleteToken();
+    this.router.navigate(['home'])
+    .then(() => {
+      window.location.reload();
+    });
+  }
 
   deleteProd(id: any): void {
     let confirmacion = confirm(

@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SignUpComponent } from './components/signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConfirmacionComponent } from './components/confirmacion/confirmacion.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { ConfirmacionComponent } from './components/confirmacion/confirmacion.co
     ReactiveFormsModule,
     FormsModule,
   ],
-  providers: [ServicioUserService],
+  providers: [ServicioUserService,CookieService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 // el observable es de esta libreria
 import { Observable } from 'rxjs';
 import { User } from '../interfaces/usuario.interface';
+import { CookieService } from 'ngx-cookie-service';
 
 interface registerResponse{
   success: boolean
@@ -18,13 +19,8 @@ interface registerResponse{
 export class ServicioUserService {
   postId: any;
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private cookies: CookieService) {
     }
-
-
-  
-
-    
 
       enviarUsuario(username:string, password:string ) {
         return this.http.post('http://localhost:3900/api/login',{username,password},{observe:'response'}) ;
@@ -36,6 +32,16 @@ export class ServicioUserService {
 
       verificarEmail( codigo: number,username: string ) {
         return this.http.post('http://localhost:3900/api/confirm-user',{codigo,username},{observe:'response'}) ;
+      }
+
+      setToken(token: string) {
+        this.cookies.set("token", token);
+      }
+      getToken() {
+        return this.cookies.get("token");
+      }
+      deleteToken(){
+        this.cookies.delete("token");
       }
 
 
