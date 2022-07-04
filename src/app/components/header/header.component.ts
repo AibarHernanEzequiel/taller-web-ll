@@ -77,7 +77,8 @@ export class HeaderComponent implements OnInit {
   }
   public confirmarCompra() {
     if(this.Session){
-      let confirmacion = confirm('¿Estas seguro de realizar la compra?');
+      if(this.ProductosCarrito.length > 0){
+        let confirmacion = confirm('¿Estas seguro de realizar la compra?');
     let fecha = new Date();
     if (confirmacion) {
       const body = {
@@ -91,6 +92,9 @@ export class HeaderComponent implements OnInit {
         .subscribe((respuesta) => console.log('SE ENVIO CORRECTAMENTE'));
         alert('Compra realizada correctamente');
     }
+      }else{
+        alert('No hay productos en el carrito.');
+      }
     }else{
       alert('Inicie sesion antes de comprar');
     }

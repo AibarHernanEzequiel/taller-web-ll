@@ -29,8 +29,8 @@
 
             <div class="d-flex justify-content-left">
               <!-- Default input -->
-              <input #cantidadProductos type="number" value="1" aria-label="Search" class="form-control" style="width: 100px">
-              <button (click)="agregarProducto(producto?._id, cantidadProductos.value)" class="btn btn-primary btn-md my-0 p">Agregar al carrito
+              <input #cantidadProductos type="number" value="1" min="1" aria-label="Search" class="form-control" style="width: 100px">
+              <button (click)="agregarProducto(producto?._id, cantidadProductos.value)" class="btn btn-warning btn-md my-0 p">Agregar al carrito
                 <i class="fas fa-shopping-cart ml-1"></i>
               </button>
               

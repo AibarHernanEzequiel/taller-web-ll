@@ -30,7 +30,6 @@ export class SignUpComponent implements OnInit {
 
   registrarse(Nombre: string, Apellido: string, Email: string, Password: string) {
     this.servicio.registrarUsuario(Nombre, Apellido, Email, Password).subscribe(data => {
-      console.log(data)
       this.router.navigate(['verificar']);
     }, error => { //Si no registra entra aca
       console.log(error);

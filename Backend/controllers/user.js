@@ -42,9 +42,6 @@ var controller = {
       })
     );
 
-    // if(validator.isEmpty(req.body)){
-    //   console.log("Esto ta vacio");
-    // }
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       

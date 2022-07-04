@@ -23,6 +23,7 @@ userForm = new FormGroup({
 loguearse(username: string, password: string){
  this.servicio.enviarUsuario(username,password).subscribe((data: any) =>{
   this.servicio.setToken('sesionIniciada');
+  console.log(data);
   this.router.navigate(['home'])
   .then(() => {
     window.location.reload();
